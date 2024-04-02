@@ -22,7 +22,7 @@ export default function wordFeedback(guessWord, correctWord) {
     if (guessedLetter === correctLetter) {
       feedback.push({
         letter: guessedLetter,
-        result: 'You got it 100% right!',
+        result: 'Correct',
       });
     } else if (
       correctArray.includes(guessedLetter) &&
@@ -30,12 +30,12 @@ export default function wordFeedback(guessWord, correctWord) {
     ) {
       feedback.push({
         letter: guessedLetter,
-        result: 'Right letter, wrong place!',
+        result: 'Misplaced',
       });
     } else {
       feedback.push({
         letter: guessedLetter,
-        result: 'Not in the ballpark, bro',
+        result: 'Incorrect',
       });
     }
   }

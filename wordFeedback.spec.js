@@ -12,11 +12,11 @@ describe('wordFeedback()', () => {
   it('If no letters matches the correct word, all letters give incorrect', () => {
     const output = wordFeedback('glows', 'handy');
     const expectedOutput = [
-      { letter: 'g', result: 'Not in the ballpark, bro' },
-      { letter: 'l', result: 'Not in the ballpark, bro' },
-      { letter: 'o', result: 'Not in the ballpark, bro' },
-      { letter: 'w', result: 'Not in the ballpark, bro' },
-      { letter: 's', result: 'Not in the ballpark, bro' },
+      { letter: 'g', result: 'Incorrect' },
+      { letter: 'l', result: 'Incorrect' },
+      { letter: 'o', result: 'Incorrect' },
+      { letter: 'w', result: 'Incorrect' },
+      { letter: 's', result: 'Incorrect' },
     ];
     expect(output).toEqual(expectedOutput);
   });
@@ -24,11 +24,11 @@ describe('wordFeedback()', () => {
   it('If all letters matches the correct word, all letters give correct', () => {
     const output = wordFeedback('hands', 'hands');
     const expectedOutput = [
-      { letter: 'h', result: 'You got it 100% right!' },
-      { letter: 'a', result: 'You got it 100% right!' },
-      { letter: 'n', result: 'You got it 100% right!' },
-      { letter: 'd', result: 'You got it 100% right!' },
-      { letter: 's', result: 'You got it 100% right!' },
+      { letter: 'h', result: 'Correct' },
+      { letter: 'a', result: 'Correct' },
+      { letter: 'n', result: 'Correct' },
+      { letter: 'd', result: 'Correct' },
+      { letter: 's', result: 'Correct' },
     ];
     expect(output).toEqual(expectedOutput);
   });
@@ -36,11 +36,11 @@ describe('wordFeedback()', () => {
   it('if one letter is used more than once in both guess and answer, it housld return the right feedback for both', () => {
     const output = wordFeedback('hallå', 'cykla');
     const expectedOutput = [
-      { letter: 'h', result: 'Not in the ballpark, bro' },
-      { letter: 'a', result: 'Right letter, wrong place!' },
-      { letter: 'l', result: 'Not in the ballpark, bro' },
-      { letter: 'l', result: 'You got it 100% right!' },
-      { letter: 'å', result: 'Not in the ballpark, bro' },
+      { letter: 'h', result: 'Incorrect' },
+      { letter: 'a', result: 'Misplaced' },
+      { letter: 'l', result: 'Incorrect' },
+      { letter: 'l', result: 'Correct' },
+      { letter: 'å', result: 'Incorrect' },
     ];
     expect(output).toEqual(expectedOutput);
   });
